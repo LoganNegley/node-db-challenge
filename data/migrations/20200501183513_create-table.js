@@ -11,14 +11,14 @@ exports.up = function(knex) {
           .notNullable()
           .defaultTo(false);
       })
-      createTable('resources', tbl =>{
+      .createTable('resources', tbl =>{
           tbl.increments();
           tbl.string('resource_name')
           .unique()
           .notNullable();
           tbl.string('resource_description');
       })
-      createTable('tasks', tbl =>{
+      .createTable('tasks', tbl =>{
           tbl.increments();
           tbl.string('task_description')
           .notNullable();
@@ -34,8 +34,8 @@ exports.up = function(knex) {
           .onUpdate('CASCADE')
           .onDelete('CASCADE')
       })
-      createTable('resourceList', tbl =>{
-          tble.integer('project_id')
+      .createTable('resourceList', tbl =>{
+          tbl.integer('project_id')
           .unsigned()
           .notNullable()
           .references('id')
