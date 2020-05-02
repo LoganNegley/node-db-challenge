@@ -1,13 +1,9 @@
 
-exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
-    .then(function () {
-      // Inserts seed entries
+exports.seed = function(knex, Promise) {
       return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+        {resource_name: 'computer', resource_description:'laptop'},
+        {resource_name: 'paper', resource_description:'notebook'},
+        {resource_name: 'saw', resource_description:'tableSaw'},
+        {resource_name: 'wood'},
       ]);
-    });
 };
