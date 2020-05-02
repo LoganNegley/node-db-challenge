@@ -1,6 +1,6 @@
 
 exports.seed = function(knex, Promise) {
-      return knex('table_name').insert([
+      return knex('resources').insert([
         {resource_name: 'computer', resource_description:'laptop'},
         {resource_name: 'paper', resource_description:'notebook'},
         {resource_name: 'saw', resource_description:'tableSaw'},
