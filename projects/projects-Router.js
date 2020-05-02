@@ -4,7 +4,6 @@ const router = express.Router();
 const db = require('./projects-model');
 
 router.get('/', (req,res) =>{
-    console.log('hello from get')
     db.getProjects()
     .then(projects =>{
         res.status(200).json(projects)
@@ -25,6 +24,20 @@ router.get('/resources', (req,res) =>{
     .catch(error =>{
         res.status(500).json({
             errorMessage: 'Unable to get list of resources'
+        })
+    })
+})
+
+router.get('/tasks', (req,res) =>{
+    db.getTasks()
+    .then(tasks =>{
+        res.status(200).json(tasks)
+    })
+    .catch(error =>{
+         console.log(error)
+        res.status(500).json({
+           
+            errorMessage: 'Unable to get tasks'
         })
     })
 })
